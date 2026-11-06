@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ShopZone - an Amazon-inspired shopping website demo." />
+  <title>Amazon | Online Shopping</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="top-header">
+    <a class="logo" href="#" aria-label="ShopZone home"><span>Amazon</span><small>.in</small></a>
+    <div class="delivery">
+      <span class="pin">⌖</span>
+      <div><small>Delivering to</small><strong>Meerut 250001</strong></div>
+    </div>
+    <form class="search-bar" id="searchForm">
+      <select id="categorySelect" aria-label="Choose category">
+        <option value="all">All</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Home">Home</option>
+        <option value="Books">Books</option>
+      </select>
+      <input id="searchInput" type="search" placeholder="Search ShopZone" aria-label="Search products" />
+      <button type="submit" aria-label="Search">⌕</button>
+    </form>
+    <div class="header-links">
+      <div class="account"><small>Hello, user</small><strong>Account & Lists</strong></div>
+      <div class="orders"><small>Returns</small><strong>& Orders</strong></div>
+      <button class="cart-button" id="cartButton" aria-label="Open cart">🛒 <strong>Cart</strong><b id="cartCount">0</b></button>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a href="#products">☰ All</a>
+    <a href="#products" data-nav-category="Electronics">Electronics</a>
+    <a href="#products" data-nav-category="Fashion">Fashion</a>
+    <a href="#products" data-nav-category="Home">Home & Kitchen</a>
+    <a href="#products" data-nav-category="Books">Books</a>
+    <a href="#deals">Today's Deals</a>
+    <span class="nav-note">Great deals. Great everyday.</span>
+  </nav>
+
+  <main>
+    <section class="hero" id="deals">
+      <div class="hero-copy">
+        <p class="eyebrow">THE BIG SHOPPING WEEK</p>
+        <h1>Find your next<br /><span>favourite thing.</span></h1>
+        <p>Discover everyday essentials, tech, style and more — all in one place.</p>
+        <a href="#products" class="shop-now">Shop now <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-circle"></div>
+        <div class="hero-card card-one">🎧</div>
+        <div class="hero-card card-two">⌚</div>
+        <div class="hero-card card-three">👟</div>
+        <div class="sale-tag">UP TO<br /><b>50% OFF</b></div>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Shopping benefits">
+      <div><span>🚚</span><p><strong>Fast delivery</strong><small>At your doorstep</small></p></div>
+      <div><span>↩️</span><p><strong>Easy returns</strong><small>Simple return process</small></p></div>
+      <div><span>🔒</span><p><strong>Secure shopping</strong><small>Your data stays safe</small></p></div>
+      <div><span>💬</span><p><strong>Customer support</strong><small>We're here to help</small></p></div>
+    </section>
+
+    <section class="products-section" id="products">
+      <div class="section-heading">
+        <div><p class="eyebrow dark">HANDPICKED FOR YOU</p><h2>Explore products</h2></div>
+        <div class="sort-wrap">
+          <label for="sortSelect">Sort by</label>
+          <select id="sortSelect">
+            <option value="featured">Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="rating">Customer rating</option>
+          </select>
+        </div>
+      </div>
+      <div class="category-chips" id="categoryChips">
+        <button class="chip active" data-category="all">All products</button>
+        <button class="chip" data-category="Electronics">Electronics</button>
+        <button class="chip" data-category="Fashion">Fashion</button>
+        <button class="chip" data-category="Home">Home</button>
+        <button class="chip" data-category="Books">Books</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No products found. Try another search.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo footer-logo" href="#">shop<span>zone</span><small>.in</small></a>
+    <p>A student project inspired by modern e-commerce websites.</p>
+    <small>© 2026 ShopZone Demo. Not affiliated with Amazon.</small>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow dark">YOUR BAG</p><h2>Shopping cart</h2></div><button id="closeCart" class="close-btn" aria-label="Close cart">×</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+      <p>Taxes and delivery calculated at checkout.</p>
+      <button class="checkout-btn" id="checkoutButton">Proceed to checkout</button>
+      <small class="demo-note">Demo only — no real payment is collected.</small>
+    </div>
+  </aside>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
